@@ -1,0 +1,48 @@
+30.10.21
+This week, we have divided our raw data according to three main purpose groups in order to draw separate results by making separate queries and operations on it. In this way, we determined the functions, comparisons and results of the website we created using the database on a simple basis.
+First of all, the data group in our database was not processed and tabulated. First, I tabulated our dataset by specifying the primary key, headers and varible types. I added the tuples to this table. Afterwards, I categorized the datasets for my purpose and prepared three main tables, each containing at least 5 non-key columns. 
+The first main table was customized to query what genre and language movies are on which platform. ID is the primary key; Netflix, Hulu, Prime Video, Disney+, Genre and Language are non-key columns.
+The second main table was designed based on the director. It analyzes which director is shooting which film in which length, in which country, and in which genre. ID is the primary key; Year, Director, Genre, Counry, Language and Runtime are non-key columns.
+The third main table analyzes in which countries the good films were shot and on which platforms has them. ID is the primary key; Netflix, Hulu, Prime Video, Disney+, Type,IMDB, Roten Tomatoes and Country are non-key columns.  
+You can find the tables I created in order in the progress file under the same repository.
+
+07.11.21
+This week, I rearranged my main tables, which I created according to the queries we made last week, in accordance with the database format and scalarity rule.
+And I created the necessary extra tables to use the data for the purpose of the queries.
+Two of the extra tables, CASTING and PERSON, connect films with directors. The other two, PLATFORM and PLATFORMNAME, connect the information on which platforms the movies are on.
+Since I created extra tables in order to implement scalarity and avoid duplicates, due to the reduction of non-key attributes in my main tables, we derived new attributes and added them to the tables to use later on the website.
+
+This week, I also created a python file and the implemented the codes to transfer the main tables that I created in excel to SQL Database.
+This python code adds the data on excel to sql, and also executes the sql codes necessary to create the tables over the databases.
+It creates the headers of the extra tables. When we learn to implement the data of the extra tables, we will make additions to the tables.
+I imported the "sqlite3" library to use SQL via Python and also the "pandas" library to read excel data. I added the detailed description of the code in the pyhton file and the file in the progress folder.
+
+
+Update 12.21 
+After the application and design part covered in the lesson, the tables were rearranged by adding new attributes in accordance with their purpose and new 6 extra templates were added.
+The Main1 table was created based on the reaction and interaction of the website users to the movies.
+Table 2 is designed to generate statistics and queries related to IMDB, Rotten- Tomatoes and Oscar awards.
+Table 3 was created to keep the remaining movie information for statistics and queries.
+Along with these, extra tables named "Casting, Person, Language, Country, Platform and Genre" were created and SQL codes were written.
+In order to see all these SQL tables, interactions and data types, I created and uploaded an image on drawsql.
+
+Update 12.21
+Later in December, by integrating the tables with new attributes, I created the main database with python code, which I had previously exported to excel and worked on making it suitable for sql rules. 
+In addition, I have derived query ideas to be displayed on the homepage and menus on the web and designed where it will be used on the web.
+The 1st query you see that I wrote for the section I named Home(3 line menu); I designed it for the buttons that will appear when the homepage menu is clicked.
+I designed the second query to go to the customized queries and movie lists that I want to appear when each of those buttons is pressed.
+I created all these queries in "query.py" python program using sqlite3 library.
+I got the query results to be used on the web by running the code.
+In this way, the necessary queries for buttons to be used on the website and data display have been completed.
+I created a draft of which queries will appear in the general display of the website and on the buttons.
+On the homepage, along with button queries, popular movies and poster screenings with the "average_score" score, which will be specific to our site that I created while no user has registered.
+After the user has logged in, I designed the idea of ​​creating user-specific queries with the data I will get from the user_statistics table and displaying the movie lists and posters that s/he will like.
+
+Update 01.22
+After creating the button queries for the site, I also thought of some statistics to display on the web. 
+"Which director has produced the most movies?", "How many movies are on which platform?", 
+"Which platform has the most movies safe for children?", "Which type of movie was shot most in which country?",
+"For each genre, in which country that genre was shot the most", these are some of the queries I created.
+After that, I created these queries with the "statistics_by_query" python program, using the sqlite3 library.
+I got the output data from the database. In the text file "statistics_results" I have saved the results as a list for display on the web.
+In this way, all data operations, queries and statistics that need to be done in the database part are completed.

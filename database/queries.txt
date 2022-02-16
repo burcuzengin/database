@@ -1,0 +1,69 @@
+!!COLUMN UPDATE:(Average_score)+
+UPDATE MOVIE_STATISTICS
+SET Average_score=(IMDB*0.7)+(Rotten_tomatoes*0.3)
+
+
+1)MAIN MENU (3 LINES MENU), 1ST BUTTON PRESSES distinct
+
+kategoriler:+
+SELECT GenreNAME FROM GENRE
+ORDER BY ASC
+
+yönetmenler:+
+SELECT PersonName,Rank_of_person FROM PERSON
+WHERE(CastType='Director')
+
+oyuncular:+
+SELECT PersonName FROM PERSON
+WHERE((CastType='Actor') OR (CastType='Actress')
+
+film dilleri:*
+SELECT LanguageName FROM LANGUAGE
+ORDER BY ASC
+
+ödül ve dereceler:
+
+
+2)MAIN MENU- 2ND BUTTON PRESSES
+
+//ya isimle tek tek, ya da türleri belirlerken fazla yazılanı silme kodu bul. O listeyi dolanarak GenreName='x' olarak kodla ara.
+kategori filmleri:+
+SELECT MOVIES.Title FROM MOVIES, GENRE
+WHERE((GENRE.MovieID= MOVIES.MovieID)
+AND(GENRE.GenreName='x'))
+
+yönetmenlerin filmleri:+
+SELECT PERSON.PersonName,PERSON.Rank_of_person,MOVIES.Title 
+FROM PERSON, CASTING, MOVIES
+WHERE((PERSON.PersonID=CASTING.PersonID)
+AND (CASTING.MovieID=MOVIES.MovieID)
+AND(PERSON.CastType='Director'))
+
+//Şu şekilde de yapılabilir:
+SELECT MOVIES.Title
+FROM PERSON, CASTING, MOVIES
+WHERE((PERSON.PersonID=CASTING.PersonID)
+AND (CASTING.MovieID=MOVIES.MovieID)
+AND(PERSON.PersonID=i))
+
+oyuncuların filmleri:+
+
+SELECT PERSON.PersonName,PERSON.Rank_of_person,MOVIES.Title 
+FROM PERSON, CASTING, MOVIES
+WHERE((PERSON.PersonID=CASTING.PersonID)
+AND (CASTING.MovieID=MOVIES.MovieID)
+AND((PERSON.CastType='Actor') OR (PERSON.CastType='Actress'))
+)
+
+//Şu şekilde de yapılabilir:
+SELECT MOVIES.Title
+FROM PERSON, CASTING, MOVIES
+WHERE((PERSON.PersonID=CASTING.PersonID)
+AND (CASTING.MovieID=MOVIES.MovieID)
+AND(PERSON.PersonID=i)
+AND((PERSON.CastType='Actor') OR (PERSON.CastType='Actress'))
+
+
+
+2) QUERIES FOR STATISTICS & REPRESENTATION
+
